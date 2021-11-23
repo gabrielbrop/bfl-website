@@ -1,0 +1,40 @@
+{
+    "name": "bfl-tutorial",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "gabrielbrop",
+    "license": "MIT",
+    "scripts": {
+        "start": "webpack server",
+        "build": "webpack --env=mode=production",
+        "deploy": "./deploy.sh"
+    },
+    "dependencies": {
+        "@babel/core": "^7.16.0",
+        "@babel/preset-env": "^7.16.0",
+        "@babel/preset-react": "^7.16.0",
+        "babel-loader": "^8.2.3",
+        "html-webpack-plugin": "^5.5.0",
+        "react": "^17.0.2",
+        "react-animate-height": "^2.0.23",
+        "react-dom": "^17.0.2",
+        "react-markdown": "^7.1.0",
+        "react-router-dom": "^6.0.2",
+        "react-transition-group": "^4.4.2",
+        "rehype-raw": "^6.1.0",
+        "remark-gfm": "^3.0.1",
+        "webpack": "^5.64.1",
+        "webpack-cli": "^4.9.1",
+        "webpack-dev-server": "^4.5.0"
+    },
+    "devDependencies": {
+        "@types/react": "^17.0.35",
+        "@types/react-dom": "^17.0.11",
+        "@types/react-transition-group": "^4.4.4",
+        "css-loader": "^6.5.1",
+        "react-icons": "^4.3.1",
+        "style-loader": "^3.3.1",
+        "ts-loader": "^9.2.6",
+        "typescript": "^4.4.4"
+    }
+}

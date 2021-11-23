@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "module": "CommonJS",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "noImplicitAny": true,
+        "removeComments": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "forceConsistentCasingInFileNames": true,
+        "declaration": false,
+        "target": "esnext",
+        "experimentalDecorators": true,
+        "resolveJsonModule": true,
+        "jsx": "react-jsx"
+    }
+}
