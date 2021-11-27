@@ -50,6 +50,10 @@ module.exports = (env) => {
                 template: './src/assets/index.html',
                 inject: true,
                 filename: 'index.html'
+            }),
+            new webpack.ProvidePlugin({
+                Buffer: ['buffer', 'Buffer'],
+                process: require.resolve("process/browser")
             })
         ],
         optimization: {

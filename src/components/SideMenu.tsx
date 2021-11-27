@@ -6,7 +6,7 @@ const sideNav: React.CSSProperties = {
     width: "20vw",
     minWidth: "20vw",
     position: "absolute",
-    zIndex: 1,
+    zIndex: 20,
     top: 0,
     bottom: 0,
     left: 0,

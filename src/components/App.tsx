@@ -9,6 +9,7 @@ import { HashRouter, Route } from "react-router-dom";
 import Article from './Article';
 import Switch from './Switch';
 import SideMenuGroup from './SideMenuGroup';
+import MatchViewer from './MatchViewer';
 
 const getRoute = (it: typeof data.content[0]) => {
     if (it) {
@@ -41,6 +42,7 @@ export default function App() {
                 <SideMenuGroup mobile={isMobile} data={data} />
                 <Switch>
                     <Route path="/" element={<Article mobile={isMobile} content={data.mainPage.text} next={getRoute(data.content[0])} />} />
+                    <Route path="/match/:info" element={<MatchViewer mobile={isMobile} />} />
                     {
                         data.content.map((item, index, elements) => {
                             return <Route
