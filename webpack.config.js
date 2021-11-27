@@ -49,7 +49,8 @@ module.exports = (env) => {
             new HtmlWebpackPlugin({
                 template: './src/assets/index.html',
                 inject: true,
-                filename: 'index.html'
+                filename: 'index.html',
+                favicon: "./src/assets/logo.png"
             }),
             new webpack.ProvidePlugin({
                 Buffer: ['buffer', 'Buffer'],
