@@ -9,6 +9,8 @@ A linha de scrimmage é a linha que separa o campo defensivo do campo ofensivo.
 const article = {
     title: "Linha de Scrimmage",
     category: "campo",
+    previewImg: image,
+    desc: "A linha de scrimmage é a linha que separa o campo defensivo do campo ofensivo.",
     text
 }
 

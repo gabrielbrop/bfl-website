@@ -13,6 +13,8 @@ Caso, após os 12 segundos, um jogador defensivo chute a bola do QB, o QB automa
 const article = {
     title: "Corrida de QB",
     category: "descidas",
+    previewImg: image,
+    desc: "Após 12 segundos do hike, o QB poderá tentar fazer uma corrida. Isso geralmente acontece quando o QB não consegue achar brechas na defesa inimiga e decide tentar a sorte.",
     text
 }
 

@@ -22,7 +22,6 @@ import A21 from "./hashes.article";
 import A22 from "./linha-de-first-down.article";
 import A23 from "./posicionamento-defensivo.article";
 import A24 from "./links-uteis.article";
-import mainPage from "./mainpage.article";
 
 export default [
     // Campo
@@ -40,5 +39,3 @@ export default [
     // Miscelânea
     A24
 ];
-
-export { mainPage };

@@ -10,11 +10,14 @@ const logoStyle: React.CSSProperties = {
 }
 
 interface LogoProps {
-    onClick: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
+    onClick: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void,
+    style?: React.CSSProperties
 }
 
-export default function Logo({ onClick }: LogoProps) {
+export default function Logo({ onClick, style }: LogoProps) {
     return (
-        <Link onClick={(event) => onClick(event)} to="/" style={{ color: 'inherit', textDecoration: 'inherit'}}><img src={logo} alt="Logo" style={logoStyle} /></Link>
+        <Link onClick={(event) => onClick(event)} to="/" style={{ color: 'inherit', textDecoration: 'inherit'}}>
+            <img src={logo} alt="Logo" style={{...style, ...logoStyle}} />
+        </Link>
     );
 }

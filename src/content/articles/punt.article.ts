@@ -29,6 +29,8 @@ Se você fizer o punt, o time adversário começará com a bola bem mais distant
 const article = {
     title: "Punt",
     category: "outras",
+    previewImg: image,
+    desc: "Um punt consiste em uma jogada especial em que o time arremessa a bola para o time adversário. Funciona de maneira semelhante ao kickoff, mas com a bola sendo arremessada a partir da linha de scrimmage da descida atual.",
     text
 }
 

@@ -37,6 +37,8 @@ começa a contagem.
 const article = {
     title: "Invasão",
     category: "faltas",
+    previewImg: image,
+    desc: "A falta de invasão, também conhecida como crowd abuse, consiste na invasão da área da bola por parte da defesa durante uma descida. Ficar por mais que 3 segundos nessa região sem que nenhum jogador do time ofensivo esteja nela resultará em 10 jardas de penalidade pro time defensivo.",
     text
 }
 

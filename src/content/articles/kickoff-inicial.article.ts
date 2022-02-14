@@ -15,6 +15,8 @@ Caso ele seja pego pelo time adversário, iniciará-se uma descida.
 const article = {
     title: "Kickoff inicial",
     category: "inicio",
+    previewImg: image,
+    desc: "No início do jogo, o red deve chutar a bola para um jogador do blue pegar. O jogador do blue que pegar a bola ganhará o emoji de 🏈 e deverá correr para a endzone do red.",
     text
 }
 

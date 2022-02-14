@@ -9,6 +9,8 @@ Antes de começarmos, entenda como é dividido as áreas do campo.
 const article = {
     title: "Áreas do Campo",
     category: "campo",
+    previewImg: image,
+    desc: "Antes de começarmos, entenda como é dividido as áreas do campo.",
     text
 }
 

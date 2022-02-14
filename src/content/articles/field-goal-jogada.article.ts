@@ -38,6 +38,8 @@ para a direção errada.
 const article = {
     title: "Field Goal (Jogada)",
     category: "outras",
+    previewImg: image,
+    desc: "Field goal (FG) é uma jogada especial em que o time ofensivo chuta a bola em direção ao gol adversário. Caso acerte, ganhará 3 pontos. O field goal só é possível caso o time ofensivo esteja a, no máximo, uma distância de 47 jardas da endzone adversária, ou a 57 jardas do gol adversário. Quanto mais longe o FG, mais difícil de acertar.",
     text
 }
 

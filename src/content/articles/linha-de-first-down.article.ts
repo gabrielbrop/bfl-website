@@ -9,6 +9,8 @@ A linha de first down é a linha até onde o time ofensivo deve avançar durante
 const article = {
     title: "Linha de First Down",
     category: "campo",
+    previewImg: image,
+    desc: "A linha de first down é a linha até onde o time ofensivo deve avançar durante as 4 descidas.",
     text
 }
 

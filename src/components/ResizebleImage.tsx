@@ -1,8 +1,11 @@
 import React from 'react';
 
+import loadingImg from "../assets/images/loading.gif";
+
 export default function ResizableImage({ alt, src, title }: { alt?: string, src?: string, title?: string; }) {
     const [scaled, setScaled] = React.useState(false);
     const [zoomed, setZoomed] = React.useState(false);
+    const [loading, setLoading] = React.useState(true);
 
     React.useEffect(() => {
         return () => {
@@ -42,9 +45,10 @@ export default function ResizableImage({ alt, src, title }: { alt?: string, src?
         <div style={divStyle} onClick={() => scaled && setScaled(false) }>
             <img 
                 alt={alt} 
-                src={src} 
+                src={loading ? loadingImg : src} 
                 title={title} 
                 style={style}
+                onLoad={() => setLoading(false)}
                 onClick={(event) => {
                     if (!scaled) {
                         setScaled(true);

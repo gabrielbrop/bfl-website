@@ -9,6 +9,8 @@ Como o futebol americano é um jogo de disputa de território, saber as divisõe
 const article = {
     title: "Linhas de Jardas",
     category: "campo",
+    previewImg: image,
+    desc: "Como o futebol americano é um jogo de disputa de território, saber as divisões mais comuns do campo é absolutamente essencial.",
     text
 }
 

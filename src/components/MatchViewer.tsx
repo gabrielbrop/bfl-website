@@ -1,31 +1,36 @@
 import React from 'react';
 
 import { useParams } from "react-router-dom";
-import MaterialTable from "material-table";
+import MaterialTable from '@material-table/core';
+import { ExportCsv, ExportPdf } from '@material-table/exporters';
+
+import Pako from 'pako';
 
 const style: React.CSSProperties = {
+    right: "0",
+    left: "0",
+    position: "absolute",
+    wordBreak: "break-word",
+    width: "100%",
+    height: "100%",
+    overflowY: "auto",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center"
+}
+
+const styleMobile: React.CSSProperties = {
     paddingTop: "5%",
     top: "0",
     right: "0",
     bottom: "0",
-    left: "20vw",
-    paddingLeft: "5%",
-    position: "absolute",
-    wordBreak: "break-word",
-    maxHeight: "96%",
-    overflowY: "auto"
-}
-
-const styleMobile: React.CSSProperties = {
-    paddingTop: "20%",
-    top: "0",
-    right: "0",
-    bottom: "0",
     left: "0",
-    paddingLeft: "5%",
+    paddingLeft: "3%",
+    paddingRight: "3%",
+    paddingBottom: "2em",
     position: "absolute",
     wordBreak: "break-word",
-    maxHeight: "96%",
+    maxHeight: "100%",
     overflowY: "auto"
 }
 
@@ -53,9 +58,8 @@ interface MatchViewerProps {
 export default function MatchViewer({ mobile }: MatchViewerProps) {
     const { info } = useParams();
 
-    const matchInfoStr = Buffer.from(info, "base64").toString("utf-8");
-
     try {
+        const matchInfoStr = Pako.ungzip(Buffer.from(info, "base64"), { to: 'string' });
         const matchInfo = JSON.parse(matchInfoStr);
 
         const dataRed = {
@@ -72,16 +76,26 @@ export default function MatchViewer({ mobile }: MatchViewerProps) {
 
         const dataPlayers = [
             ...dataRed.players.map((p: any) => {
+                const playerFor = p.timeLeft - p.timeJoin;
+
                 return {
                     name: p.name,
                     team: `Red (${dataRed.name})`,
                     id: p.id,
                     reg: p.registered,
-                    playedFor: p.timeLeft - p.timeJoin
+                    playedFor: !Number.isNaN(playerFor) ? playerFor : "0"
                 }
             }),
             ...dataBlue.players.map((p: any) => {
-                return { name: p.name, team: `Blue (${dataBlue.name})` }
+                const playerFor = p.timeLeft - p.timeJoin;
+
+                return {
+                    name: p.name,
+                    team: `Red (${dataRed.name})`,
+                    id: p.id,
+                    reg: p.registered,
+                    playedFor: !Number.isNaN(playerFor) ? playerFor : "0"
+                }
             })
         ];
 
@@ -93,11 +107,11 @@ export default function MatchViewer({ mobile }: MatchViewerProps) {
             }
         });
 
-        const maxWidth = mobile ? "100%" : "80%";
+        const width = mobile ? "100%" : "80%";
 
         return (
             <div style={mobile ? styleMobile : style}>
-                <div style={{ maxWidth, paddingBottom: "2em" }}>
+                <div style={{ width, paddingBottom: "2em", paddingTop: "5%" }}>
                     <MaterialTable
                         columns={[
                             { title: `Nome`, field: "name" },
@@ -111,42 +125,62 @@ export default function MatchViewer({ mobile }: MatchViewerProps) {
                         options={{
                             headerStyle: {
                                 whiteSpace: 'nowrap'
-                            }
+                            },
+                            rowStyle: {
+                                whiteSpace: 'nowrap'
+                            },
+                            paging: false
                         }}
                         title={`Partida #${matchInfo.id} (Red ${dataRed.goals} • ${dataBlue.goals} Blue)`}
                         localization={portugueseLocalization}
                     />
                 </div>
 
-                <div style={{ maxWidth }}>
+                <div style={{ width, paddingBottom: "5%" }}>
                     <MaterialTable
                         columns={[
-                            { title: `Nome`, field: "name", type: "string" },
-                            { title: `ID`, field: "id", type: "numeric" },
-                            { title: `J. Recebidas`, field: "jardasRecebidas", type: "numeric" },
-                            { title: `J. Corridas`, field: "jardasCorridas", type: "numeric" },
-                            { title: `Recepções`, field: "recepcoes", type: "numeric" },
-                            { title: `Corridas`, field: "corridas", type: "numeric" },
-                            { title: `TD Recebidos`, field: "touchdownRecebidos", type: "numeric" },
-                            { title: `TD Corridos`, field: "touchdownCorridos", type: "numeric" },
-                            { title: `J. Retornadas`, field: "jardasRetornadas", type: "numeric" },
-                            { title: `TD Retornados`, field: "touchdownRetornados", type: "numeric" },
-                            { title: `Passes Bloqueados`, field: "passesBloqueados", type: "numeric" },
-                            { title: `Tackles`, field: "tackles", type: "numeric" },
-                            { title: `Sacks`, field: "sacks", type: "numeric" },
-                            { title: `Interceptações`, field: "interceptacoes", type: "numeric" },
-                            { title: `Pick Six`, field: "pickSix", type: "numeric" },
-                            { title: `Corridas QB`, field: "corridasQb", type: "numeric" },
-                            { title: `J. Lançadas`, field: "jardasLancadas", type: "numeric" },
-                            { title: `Passes`, field: "passes", type: "numeric" },
-                            { title: `Passes pra TD`, field: "passesPraTouchdown", type: "numeric" },
-                            { title: `J. Field Goal`, field: "fieldGoalJardas", type: "numeric" }
+                            { title: `Nome`, field: "name", removable: false, type: "string" },
+                            { title: `ID`, field: "id", type: "numeric", hidden: true, hiddenByColumnsButton: false },
+                            { title: `J. Recebidas`, field: "jardasRecebidas", type: "string", align: "center" },
+                            { title: `J. Corridas`, field: "jardasCorridas", type: "string", align: "center" },
+                            { title: `Recepções`, field: "recepcoes", type: "string", align: "center" },
+                            { title: `Corridas`, field: "corridas", type: "string", align: "center" },
+                            { title: `TD Recebidos`, field: "touchdownRecebidos", type: "string", align: "center" },
+                            { title: `TD Corridos`, field: "touchdownCorridos", type: "string", align: "center" },
+                            { title: `J. Retornadas`, field: "jardasRetornadas", type: "string", align: "center" },
+                            { title: `TD Retornados`, field: "touchdownRetornados", type: "string", align: "center" },
+                            { title: `Passes Bloqueados`, field: "passesBloqueados", type: "string", align: "center" },
+                            { title: `Tackles`, field: "tackles", type: "string", align: "center" },
+                            { title: `Sacks`, field: "sacks", type: "string", align: "center" },
+                            { title: `Interceptações`, field: "interceptacoes", type: "string", align: "center" },
+                            { title: `Pick Six`, field: "pickSix", type: "string", align: "center" },
+                            { title: `Corridas QB`, field: "corridasQb", type: "string", align: "center" },
+                            { title: `J. Lançadas`, field: "jardasLancadas", type: "string", align: "center" },
+                            { title: `Passes Tentados`, field: "passesTentados", type: "string", align: "center" },
+                            { title: `Passes Completos`, field: "passesCompletos", type: "string", align: "center" },
+                            { title: `Passes pra TD`, field: "passesPraTouchdown", type: "string", align: "center" },
+                            { title: `J. Field Goal`, field: "fieldGoalJardas", type: "string", align: "center" }
                         ]}
                         data={dataStats}
                         options={{
                             headerStyle: {
                                 whiteSpace: 'nowrap'
-                            }
+                            },
+                            rowStyle: {
+                                whiteSpace: 'nowrap'
+                            },
+                            exportMenu: [{
+                                label: 'Exportar como PDF',
+                                exportFunc: (cols, datas) => ExportPdf(cols, datas, matchInfo.id)
+                            }, {
+                                label: 'Exportar como CSV',
+                                exportFunc: (cols, datas) => ExportCsv(cols, datas, matchInfo.id)
+                            }],
+                            paginationType: "stepped",
+                            paging: false,
+                            columnsButton: true,
+                            searchAutoFocus: true,
+
                         }}
                         title={`Stats #${matchInfo.id}`}
                         localization={portugueseLocalization}

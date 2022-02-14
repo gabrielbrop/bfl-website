@@ -11,6 +11,7 @@ Esta falta é extremamente rara, em quase todos os casos só ocorre se o time n�
 const article = {
     title: "Safety",
     category: "faltas",
+    desc: "Se um jogador do time ofensivo estiver com a bola (recebedor) e for derrubado (tackleado) pelo time defensivo dentro da própria endzone, será considerado safety, concedendo 2 pontos e a posse da bola para o time defensivo.",
     text
 }
 

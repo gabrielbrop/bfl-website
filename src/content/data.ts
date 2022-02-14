@@ -1,5 +1,13 @@
 import Utils from "../utils/Utils";
-import articles, { mainPage } from "./articles";
+import articles from "./articles";
+
+type Article = {
+    title: string,
+    category: string,
+    previewImg?: string,
+    desc?: string,
+    text: string
+}
 
 const categories = [
     { name: "campo", title: "Campo", route: "campo" },
@@ -13,8 +21,7 @@ const categories = [
 
 const data = {
     categories,
-    mainPage: mainPage,
-    content: articles.map(a => {
+    content: (articles as Article[]).map(a => {
         return { ...a, route: Utils.removeDiacritics(a.title.replace(/\s+/g, '-')).replace(/[^0-9a-z-]/gi, '') };
     })
     .sort((a, b) => categories.findIndex(c => c.name === a.category) - categories.findIndex(c => c.name === b.category))

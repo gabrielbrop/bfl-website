@@ -18,8 +18,7 @@ const categoryTitleCSS: React.CSSProperties = {
     display: "inline-flex",
     alignItems: "center",
     cursor: "pointer",
-    fontSize: "1.17em",
-    fontWeight: "bold",
+    fontSize: "1.1em",
     marginTop: "1em"
 }
 

@@ -1,12 +1,7 @@
 import image from "../../assets/images/trad.png";
 import image2 from "../../assets/images/2man.png";
 import image3 from "../../assets/images/areainvasao.png";
-import image4 from "../../assets/images/cornerbacks.png";
-import image5 from "../../assets/images/meu-cornerback-favorito.gif";
 import image6 from "../../assets/images/4man.png";
-import image7 from "../../assets/images/fs1.png";
-import image8 from "../../assets/images/fs2.png";
-import image9 from "../../assets/images/fs3.png";
 
 const text = `
 O **time defensivo** deverá **evitar o avanço** do time ofensivo, isto é, impedir que um WR receba a
@@ -61,6 +56,8 @@ A falta de invasão será mais aprofundada na seção de faltas.
 const article = {
     title: "Time Defensivo",
     category: "descidas",
+    previewImg: image,
+    desc: "O time defensivo deverá evitar o avanço do time ofensivo, isto é, impedir que um WR receba a bola ou derrubá-lo caso ele conseguia recebê-la.",
     text
 }
 

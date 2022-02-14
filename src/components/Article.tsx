@@ -11,6 +11,7 @@ import { IoIosCheckmarkCircle } from 'react-icons/io';
 
 const articleStyle: React.CSSProperties = {
     paddingTop: "5%",
+    paddingBottom: "8%",
     top: "0",
     right: "0",
     bottom: "0",
@@ -39,10 +40,12 @@ const mobileStyle: React.CSSProperties = {
     flexDirection: "column"
 }
 
-interface SideMenuProps {
+interface ArticleProps {
     content?: string;
     title?: string;
     next?: string;
+    previewImg?: string;
+    desc?: string;
     mobile: boolean;
 }
 
@@ -61,11 +64,13 @@ const components = {
     }
 };
 
-export default function Article({ title, content, next, mobile }: SideMenuProps) {
+export default function Article({ title, content, next, mobile, desc, previewImg }: ArticleProps) {
     return (
         <div style={mobile ? { ...articleStyle, ...mobileStyle } : articleStyle}>
             <h1 style={mobile ? { paddingTop: "10%" } : null}>{title}</h1>
+            
             <div style={mobile ? contentStyleMobile : contentStyle}><ReactMarkdown components={components} remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{content}</ReactMarkdown></div>
+            
             { 
                 next ?
                 <BottomButtom path={next} Icon={IoIosArrowDroprightCircle} /> :

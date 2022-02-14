@@ -18,7 +18,7 @@ export default function SideMenuGroup({ data, mobile }: SideMenuGroupProps) {
 
     return (
         <SideMenu mobile={mobile} full={full} onClickShowButton={() => setFull(!full)} >
-            <Logo onClick={() => setFull(false)} />
+            <Logo style={{ paddingBottom: "1em" }} onClick={() => setFull(false)} />
             {data.categories.map((category: any) => 
                 <SideMenuCategory title={category.title} key={category.name} >
                     {data.content.filter((item: any) => item.category === category.name).map((item: any) =>

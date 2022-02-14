@@ -20,6 +20,8 @@ O objetivo do time ofensivo é avançar o máximo durante a jogada, enquanto que
 const article = {
     title: "Descida",
     category: "descidas",
+    previewImg: image,
+    desc: "Descida é o nome dado a cada tentativa de avanço durante o jogo. Em uma descida, existem dois times: o time OFENSIVO e o time DEFENSIVO.",
     text
 }
 

@@ -25,6 +25,8 @@ a posse da bola e tentar fazer uma última campanha.
 const article = {
     title: "Kickoff",
     category: "outras",
+    previewImg: image,
+    desc: "O kickoff é uma jogada especial que acontece no início do jogo e após touchdowns e field goals. A equipe que chuta (kicking team) irá lançar a bola para a equipe que recebe (receiving team). O jogador da equipe que recebe que encostar na bola irá recebê-la e, portanto, deverá correr o máximo possível em direção à endzone inimiga, para ganhar jardas ou fazer um touchdown.",
     text
 }
 

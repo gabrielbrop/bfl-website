@@ -10,7 +10,8 @@ const sideNav: React.CSSProperties = {
     top: 0,
     bottom: 0,
     left: 0,
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "rgb(70, 73, 80)",
+    color: "#FFFFFF",
     borderRight: "1px solid",
     borderColor: "#f0f0f0",
     overflowX: "hidden",
@@ -44,7 +45,7 @@ interface SideMenuProps {
 export default function SideMenu({ children, mobile, full, onClickShowButton }: SideMenuProps) {
     if (!mobile) {
         return (
-            <div style={sideNav}>
+            <div className="side-menu" style={sideNav}>
                 <ul style={sideNavContent}>
                     {children}
                 </ul>

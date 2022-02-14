@@ -10,6 +10,7 @@ import Article from './Article';
 import Switch from './Switch';
 import SideMenuGroup from './SideMenuGroup';
 import MatchViewer from './MatchViewer';
+import Homepage from './Homepage';
 
 const getRoute = (it: typeof data.content[0]) => {
     if (it) {
@@ -38,22 +39,27 @@ export default function App() {
 
     return (
         <HashRouter>
-            <div className="main">
-                <SideMenuGroup mobile={isMobile} data={data} />
-                <Switch>
-                    <Route path="/" element={<Article mobile={isMobile} content={data.mainPage.text} next={getRoute(data.content[0])} />} />
-                    <Route path="/match/:info" element={<MatchViewer mobile={isMobile} />} />
-                    {
-                        data.content.map((item, index, elements) => {
-                            return <Route
-                                key={item.route}
-                                path={getRoute(item)}
-                                element={<Article mobile={isMobile} title={item.title} content={item.text} next={getRoute(elements[index+1])} />}
-                            />
-                        })
-                    }
-                </Switch>
-            </div>
+            <Switch>
+                <Route path="/" element={<Homepage mobile={isMobile} next={getRoute(data.content[0])} />} />
+                    
+                <Route path="/match/:info" element={<MatchViewer mobile={isMobile} />} />
+                    
+                {
+                    data.content.map((item, index, elements) => {
+                        return <Route
+                            key={item.route}
+                            path={getRoute(item)}
+                            element={
+                                <div className="main">
+                                    <SideMenuGroup mobile={isMobile} data={data} />
+                                    
+                                    <Article mobile={isMobile} previewImg={item.previewImg} desc={item.desc} title={item.title} content={item.text} next={getRoute(elements[index+1])} />
+                                </div>
+                            }
+                        />
+                    })
+                }
+            </Switch>
         </HashRouter>
     );
 }

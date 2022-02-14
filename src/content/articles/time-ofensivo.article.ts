@@ -31,6 +31,8 @@ Nesse exemplo, o QB acha uma brecha na formação do time defensivo e joga a bol
 const article = {
     title: "Time Ofensivo",
     category: "descidas",
+    previewImg: image,
+    desc: "O time ofensivo tem direito a 4 descidas. Nelas, ela deverá avançar 20 jardas (até a linha de first down) para conseguir mais outras 4 descidas ou um touchdown. Senão, o time adversário se tornará o time ofensivo.",
     text
 }
 

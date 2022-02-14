@@ -11,6 +11,7 @@ precisa de 20 jardas para conseguir mais 4 descidas.
 const article = {
     title: "Numeração no chat",
     category: "descidas",
+    desc: "No chat, o bot irá enviar as jardas restantes para a ofensiva conseguir mais 4 descidas, assim como a descida atual e a posição no campo.",
     text
 }
 

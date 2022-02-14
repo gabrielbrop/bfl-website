@@ -35,6 +35,8 @@ sempre que, a cada corrida feita, uma oportunidade de passe pra touchdown foi pe
 const article = {
     title: "Corrida",
     category: "descidas",
+    previewImg: image,
+    desc: "Jogadores do time ofensivo poderão realizar corridas com a bola encostando no QB por trás. A posição fixa de corredor é chamada de **Running Back** (RB), porém a corrida poderá ser realizada por qualquer um.",
     text
 }
 

@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Quicksand&display=swap');
 
 body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    font-family: 'Quicksand', sans-serif;
 }
 
-* {
-    font-family: 'Quicksand', sans-serif;
+.side-menu {
+    font-family: 'Archivo Black', sans-serif;
 }
 
 .main {
@@ -36,20 +38,50 @@ body {
     opacity: 0;
     transition: opacity 200ms;
 }
+  
+@keyframes MoveUpDown {
+    0%, 100% {
+        transform: translate(-50%, -50%);
+    }
+    50% {
+        transform: translate(-50%, -40%);
+    }
+}
+
+.grow {
+    transition: all .2s ease-in-out;
+}
+
+.grow:hover {
+    transform: scale(1.1);
+}
 
 ::-webkit-scrollbar {
-    width: 7px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: "#f0f0f0";
+    background: #ffffff;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #d0d0d0;
+    background-color: #b5b5b5;
     border-radius: 5px;
 }
 
 :hover::-webkit-scrollbar-thumb {
-    background-color: #b5b5b5;
+    background-color: #d0d0d0;
+}
+
+.side-menu::-webkit-scrollbar {
+    width: 8px;
+}
+
+.side-menu::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0);
+}
+
+.side-menu::-webkit-scrollbar-thumb {
+    background-color: #63676b;
+    border-radius: 5px;
 }

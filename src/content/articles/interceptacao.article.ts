@@ -19,6 +19,8 @@ touchdown do jeito convencional (entrando na end zone inimiga). Esse touchdown e
 const article = {
     title: "Interceptação",
     category: "descidas",
+    previewImg: image,
+    desc: "Assim que o QB lançar a bola, caso ninguém do time ofensivo toque nela, o time defensivo terá direito a arremessar a bola em direção ao seu próprio gol. Caso consiga, o interceptador iniciará uma corrida com a bola.",
     text
 }
 

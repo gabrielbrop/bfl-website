@@ -5,9 +5,10 @@ import { MdArrowForwardIos } from 'react-icons/md';
 
 const textCSS = {
     textDecoration: "none",
-    color: "#000",
+    color: "#cdcdcd",
     display: "inline-flex",
-    alignItems: "center"
+    alignItems: "center",
+    fontSize: "0.8em"
 }
 
 interface SideMenuProps {

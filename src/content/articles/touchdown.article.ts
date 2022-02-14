@@ -9,6 +9,8 @@ const text = `
 const article = {
     title: "Touchdown",
     category: "pontuacao",
+    previewImg: image,
+    desc: "É a maior pontuação do futebol americano, que equivale a 7 pontos.",
     text
 }
 

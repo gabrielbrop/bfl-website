@@ -1,5 +1,6 @@
 set -e
 
+
 yarn run build
 
 cd dist

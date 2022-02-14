@@ -90,6 +90,8 @@ O LB deve estar em sincronização com o FS para evitar passes longos, assim com
 const article = {
     title: "Posicionamento Defensivo",
     category: "descidas",
+    previewImg: image,
+    desc: "É absolutamente essencial a todos que estão começando a jogar que conhecam as posições básicas de defesa e como agir durante o jogo.  São três posições básica: Linebacker (LB), Corner Back (CB), Free Safety (FS).",
     text
 }
 
